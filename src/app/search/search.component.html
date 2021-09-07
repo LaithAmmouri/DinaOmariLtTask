@@ -1,0 +1,44 @@
+<div>
+
+  <a href="/" id="logo" routerlink="/">
+    <img class="headerImg" alt="LuckyTrip" src="/assets/img/LuckyTrip_Logo_Small.png"></a>
+
+</div>
+<div class="container bk1" style="background-image: url('/assets/img/background_1.png' ); ">
+  <h1 class=" textContentH1"> Search LuckyTrip </h1>
+  <h5 class=" textContentH5"> 350 destinations, 1500 blog posts, Unlimited Trips</h5>
+
+
+
+  <div class="searchBox">
+    <input [(ngModel)]="search" class="searchTxt" type="text" placeholder="Enter a Destination..." name=""
+      id="search_input">
+
+    <input type="submit" value="GO" (click)="getSearchResults()" class="btn" />
+
+
+  </div>
+</div>
+<div class="result" style="background:  linear-gradient(to bottom, #211F2A 20%,rgba(0,0,0) 100%) ; ">
+
+  <p class=trendingP>Trending
+  <p>
+
+
+
+  <div class="blog" *ngIf="searchResults.length > 0">
+
+
+    <div class="boxes" *ngFor="let result of searchResults">
+
+      <a (click)="openLink(result?.id)">
+        <img [src]="result.image_url" style="height: 250px; width:359px ; border-radius: 10px; border:2px">
+      </a>
+
+    </div>
+
+  </div>
+  <div class="blog" *ngIf="searchResults.length == 0" style="margin: 20px;">
+    <h1 class="textAlignCenter">No Result Found </h1>
+  </div>
+</div>

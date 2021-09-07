@@ -1,0 +1,46 @@
+<div>
+
+  <a href="/" id="logo" routerlink="/">
+    <img class="headerImg" alt="LuckyTrip" src="/assets/img/LuckyTrip_Logo_Small.png"></a>
+
+</div>
+
+<div class="container bk2" [style.background-image]="'url(' + results.destination.thumbnail.image_url + ')'"
+  style="Width:100%">
+  <div class="searchBox">
+    <input class="searchTxt" type="text" placeholder="Search..." name="" id="">
+
+    <a class="searchBtn" href="#"> <button name="submit" class="btn" type="submit">GO</button>
+    </a>
+  </div>
+  <h1 class=" textContentH1"> {{results.destination.city}} </h1>
+  <h5 class=" textContentH5"> {{results.destination.country_name}}</h5>
+</div>
+<div class="result" style="background: linear-gradient(to bottom, #211F2A 20%,rgba(0,0,0) 100%); width:100%;">
+  <p class="title" style="color:  #FFED7B">What’s it like? </p>
+  <p class="description">
+    {{results.destination.description.text}}
+  </p>
+
+  <p class="title" style="color:#7BFBFF">
+    Blog Posts
+  </p>
+  <div class="blog">
+
+    <div class="boxes" *ngFor="let result of results.activities">
+      <img [src]="result.thumbnail.image_url" class="blogPic">
+    </div>
+
+  </div>
+
+  <h1 class="destinationCity">Find a trip to {{results.destination.city}} </h1>
+  <h5 class="lucky">Tap the Lucky button to get started…</h5>
+
+
+  <div id="breathing-button" style="padding-bottom: 140px;">
+    <a href="/" id="logo" routerlink="/">
+      <img src="./assets/img/lucky_button.png" /></a>
+  </div>
+
+
+</div>
